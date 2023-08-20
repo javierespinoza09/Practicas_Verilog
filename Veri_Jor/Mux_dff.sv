@@ -9,7 +9,6 @@ end
 endmodule
 
 
-
 module mux_dff #(parameter bits = 8)(
 input push,
 input D_in,
@@ -30,3 +29,20 @@ output [bits-1:0] D_out
   
   
 endmodule
+
+module salida #(parameter depth = 8, parameter bits = 1)(
+input [depth-1:0] Data_in,
+input [3:0] pc,
+input clk,
+output reg Data_out);
+  
+  always@(posedge clk)begin
+    case(pc)
+      0: Data_out<=0;
+      default: Data_out <= Data_in[pc-1];
+    endcase 
+  end 
+  
+  
+  
+endmodule 
