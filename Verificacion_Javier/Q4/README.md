@@ -1,6 +1,6 @@
 Quiz 4 Verificación Funcional de Sistemas Digitales
 
-!(https://github.com/javierespinoza09/Practicas_Verilog/edit/master/Verificacion_Javier/Q4/Diagrama.png?raw=true)
+![Alt text](https://github.com/javierespinoza09/Practicas_Verilog/edit/master/Verificacion_Javier/Q4/Diagrama.png)
 
 <img
   src="github.com/javierespinoza09/Practicas_Verilog/edit/master/Verificacion_Javier/Q4/Diagrama.jpg"
