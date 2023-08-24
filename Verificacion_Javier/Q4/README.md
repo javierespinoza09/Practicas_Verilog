@@ -1,7 +1,6 @@
 # Quiz 4 Verificación Funcional de Sistemas Digitales
 Diseño del diagrama de bloques:
-![veri](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/e4dd47a8-bf74-42de-9adc-0906964c0f7c)
-
+![Diagrama sin título](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/64ac47a2-1dcc-4e01-bc31-803ed340aba5)
 Ruta de los archivos:
 ``` bash
 cd /mnt/vol_NFS_rh003/Est_Verif_II2023/JavierEspinozaR_II_2023/Practicas_Verilog/Verificacion_Javier/Q4
