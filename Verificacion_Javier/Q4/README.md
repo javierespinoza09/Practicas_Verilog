@@ -3,7 +3,11 @@
 ![Alt text](https://github.com/javierespinoza09/Practicas_Verilog/edit/master/Verificacion_Javier/Q4/Diagrama.png)
 
 Ruta de los archivos:
-/mnt/vol_NFS_rh003/Est_Verif_II2023/JavierEspinozaR_II_2023/Practicas_Verilog/Verificacion_Javier/Q4
+``` bash
+cd /mnt/vol_NFS_rh003/Est_Verif_II2023/JavierEspinozaR_II_2023/Practicas_Verilog/Verificacion_Javier/Q4
+bash run_fifo_asinc.sh
+./salida -gui
+```
 
 Bash con el comando para ejecutar el diseño propuesto:
 bash run_fifo_asinc.sh
@@ -28,9 +32,10 @@ En la siguiente figura se puede observar la señal de salida en los diferentes t
 
 
 Bash para ejecutar la simulación del sistema con registros síncronos:
+```bash
 bash run_fifo_sinc.sh
-
-./salida -gui //comando para obtener la salida gráfica 
+./salida -gui
+```
 
 
 Se diseño un sistema con registros síncronos para corregir el error de temporización mostrado. En este caso se utiliza la señal de PUSH únicamente como eñal de Enable, que permite almacenar el dato en el flanco del reloj, lo que hace que el PUSH se actualicen simultaneamente.
