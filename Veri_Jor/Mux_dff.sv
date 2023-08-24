@@ -1,18 +1,20 @@
 // Code your design here
 module dff_arst #(parameter bits = 4) ( //modulo para declarar los flops, bits es el tamaño de la palabra
   input [bits-1:0] D, 
-  input rst, clk,
+  input rst, clk, enable, //se agrega el enable para hacer que se sincronice el sistema e incremente pc al mismo tiempo que se hace push en el flop
   output reg [bits-1:0] Q
 		);
   always@(posedge clk, posedge rst) begin //para ambas señales se usan los flancos positivos
-    if(rst) Q <= 0;
-	else Q <= D;
+    if(!rst) begin
+      Q <= (enable)? D:0; //verifica si se hizo el push al mismo tiempo que el clk 
+    end
+	else Q <= 0;
 end
 endmodule
 
 
 module reg_dff #(parameter depth = 8, parameter bits = 4)( //arreglo de flops, depth es la profundidades y bits el tamaño de la palabra
-input push,
+input push,clk_reg,
   input [bits-1:0] D_in,
 input reset,
   output [bits-1:0] D_out [depth-1:0] //la salida es empaquetada, es un arreglo de "depth" cantidad de flops con palabras de tamaño "bits"
@@ -20,10 +22,10 @@ input reset,
   genvar i; 
   generate 
     for (i=0;i<depth;i=i+1)begin //ciclo para instanciar los flops
-      if(i == 0) begin
-        dff_arst dff_(.D(D_in),.rst(reset),.clk(push),.Q(D_out[i])); //declara que el primer flop recibe la información inicial
-      end else begin
-        dff_arst dff_(.D(D_out[i-1]),.rst(reset),.clk(push),.Q(D_out[i]));//el resto de flops tiene como entrada la salida del anterior
+      if(i == 0) begin //declara que el primer flop recibe la información inicial
+        dff_arst dff_(.D(D_in),.rst(reset),.clk(clk_reg),.Q(D_out[i]),.enable(push)); 
+      end else begin//el resto de flops tiene como entrada la salida del anterior
+        dff_arst dff_(.D(D_out[i-1]),.rst(reset),.clk(clk_reg),.Q(D_out[i]), .enable(push));
       end 
     end
     
@@ -69,7 +71,6 @@ input clk,
       actual : pc = pc;
       addone : pc = 1;
       zero : pc = 0;
-      
     endcase
   end 
   assign full_flag = (pc == depth-1); //en el momento que el contador llegó al máximo se vuelve TRUE "1"
