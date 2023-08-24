@@ -1,6 +1,6 @@
 # Quiz 4 Verificación Funcional de Sistemas Digitales
-
-![gui](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/a78568d9-4a3a-4b45-a654-ebb81c6435c0)
+Diseño del diagrama de bloques:
+![veri](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/e4dd47a8-bf74-42de-9adc-0906964c0f7c)
 
 Ruta de los archivos:
 ``` bash
