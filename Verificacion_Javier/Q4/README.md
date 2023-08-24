@@ -41,3 +41,6 @@ Se diseño un sistema con registros síncronos para corregir el error de tempori
 
 ![salida_estab](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/e29ddab8-2ec1-49f8-8aa0-fa800d1663b3)
 
+
+Diagrama con la correción de temporización:
+![temp](https://github.com/javierespinoza09/Practicas_Verilog/assets/99856936/79a561a3-aecb-4aeb-9635-dce04b5e5e02)
