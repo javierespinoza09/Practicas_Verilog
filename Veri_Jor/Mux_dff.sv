@@ -1,3 +1,4 @@
+// Code your design here
 module dff_arst #(parameter bits = 4) ( //modulo para declarar los flops, bits es el tamaño de la palabra
   input [bits-1:0] D, 
   input rst, clk,
@@ -54,7 +55,7 @@ input reset,
 input push,
 input pop,
 input clk,
-output push_out,
+  output push_out, pending_flag, full_flag,
   output reg [$clog2(depth):0] pc); //pc es el selector del mux y su tamaño depende de los bits necesarios según la profundidad "depth"
   parameter stay = 3'b000, out = 3'b001, add = 3'b010, actual = 3'b011, rst = 3'b100, empty = 3'b101, addone = 3'b111, zero = 3'b110 ;  //estados para la maquina de control
   
@@ -70,7 +71,8 @@ output push_out,
       zero : pc = 0;
       
     endcase
-    
-  end
+  end 
+  assign full_flag = (pc == depth-1); //en el momento que el contador llegó al máximo se vuelve TRUE "1"
+  assign pending_flag = ~full_flag; //solo se activa en el momento que la vandera de full se desactiva
   assign push_out = push; //asigna la señal de push en la entrada para usarla como el clk de los flops
 endmodule
