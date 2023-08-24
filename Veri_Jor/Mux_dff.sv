@@ -6,7 +6,7 @@ module dff_arst #(parameter bits = 4) ( //modulo para declarar los flops, bits e
 		);
   always@(posedge clk, posedge rst) begin //para ambas señales se usan los flancos positivos
     if(!rst) begin
-      Q <= (enable)? D:0; //verifica si se hizo el push al mismo tiempo que el clk 
+      Q <= (enable)? D:Q; //verifica si se hizo el push al mismo tiempo que el clk 
     end
 	else Q <= 0;
 end
